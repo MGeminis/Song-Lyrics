@@ -3,10 +3,10 @@ import sys
 import os
 import pygame
 
-MUSIC_PATH = r"C:\Python\Song\ColorRosa.mp3"   # ruta de cancion
-MUSIC_START = 131.5 # segundos de inicio de la cancion
+MUSIC_PATH = r"C:\Python\Song\ColorRosa.mp3" # ruta de cancion
+MUSIC_START = 131.5 # segundos de inicio de la cancion 
 
-# letras - velocidad de escritura - tiempo de espera - letra - velocidad de escritura
+# letras - velocidad de escritura - tiempo de espera - letras - velocidad de escritura
 lyrics = [
     ("  MGéminis ", 0.1, 0, "", 0),                                            #1
     ("", 0, 0, "", 0),                                                         #2
