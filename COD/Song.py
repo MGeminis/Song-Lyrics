@@ -6,7 +6,6 @@ import pygame
 MUSIC_PATH = r"C:\Python\Song\ColorRosa.mp3" # ruta de cancion
 MUSIC_START = 131.5 # segundos de inicio de la cancion 
 
-# letras - velocidad de escritura - tiempo de espera - letras - velocidad de escritura
 lyrics = [
     ("  MGéminis ", 0.1, 0, "", 0),                                            #1
     ("", 0, 0, "", 0),                                                         #2
@@ -21,7 +20,7 @@ lyrics = [
     ("  ¡JAMAS TE PODRÉ OLVIDAR! ", 0.095, 0, "", 0),                          #11                     
     ("  no puedo aceptar que no estarás junto a mi lado ", 0.09, 0, "", 0),    #12              
     ("  mi corazón dejó de palpitar, ", 0.1, 0.15, "se rompió...", 0.09),      #13             
-    ("  mi amor... ", 0.1, 1.4, "se fue...", 0.12),                            #14
+    ("  mi amor... ", 0.1, 1.38, "se fue...", 0.12),                            #14
     ("", 0, 5, "", 0),                                                         #15
 ]
 
@@ -32,19 +31,19 @@ delays = [0,    #1
           1.25, #4  
           1.35, #5  
           1.55, #6  
-          1.95, #7  
-          2.33, #8  
+          1.92, #7  
+          2.3, #8  
           2.7,  #9  
           3,    #10 
-          3.25, #11 
-          3.55, #12 
-          4.1,  #13 
-          4.50, #14 
-          5 ]   #15
+          3.2, #11 
+          3.47, #12 
+          4.02,  #13 
+          4.42, #14 
+          4.98 ]   #15
 
 # colores de las letras por fila
 colors = [
-    "\033[31m","\033[32m","\033[33m","\033[34m","\033[35m","\033[36m","\033[37m",
+    "\033[35m","\033[32m","\033[33m","\033[34m","\033[99m","\033[36m","\033[32m",
     "\033[91m","\033[92m","\033[93m","\033[94m","\033[95m","\033[96m","\033[97m"
 ]
 
