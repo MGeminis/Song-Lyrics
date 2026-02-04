@@ -6,6 +6,7 @@ import pygame
 MUSIC_PATH = r"C:\Python\Song\NightChanges.mp3" # ruta de cancion
 MUSIC_START = 38 # segundos de inicio de la cancion 
 
+# letras - velocidad - tiempo - letras - velocidad - tiempo - letras - velocidad
 lyrics = [
     ("  MGéminis", 0.1, 0, "", 0, 0, "", 0),                                   #1   
     ("", 0, 0, "", 0, 0, "", 0),                                               #2   
@@ -32,7 +33,7 @@ delays = [
     5.15, #8  
     6.19, #9 
     6.3,  #10  
-    7.25,  #11   
+    7.25, #11   
     8     #12
 ]
 
