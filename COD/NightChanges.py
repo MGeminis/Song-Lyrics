@@ -43,36 +43,71 @@ colors = [
 ]
 
 def animate_text(text, delay, color):
-    for char in text:
-        sys.stdout.write(f"{color}{char}\033[0m")
-        sys.stdout.flush()
-        time.sleep(delay)
+    i = 0
+    while i < len(text):
+        if text[i] == "(":
+            # imprimir '(' en modo opaco
+            sys.stdout.write(f"\033[2m{color}{text[i]}\033[0m")
+            sys.stdout.flush()
+            time.sleep(delay)
+            i += 1
+
+            # imprimir contenido dentro del paréntesis en modo opaco
+            sys.stdout.write(f"\033[2m{color}")
+            sys.stdout.flush()
+            while i < len(text) and text[i] != ")":
+                sys.stdout.write(text[i])
+                sys.stdout.flush()
+                time.sleep(delay)
+                i += 1
+
+            # imprimir ')'
+            if i < len(text) and text[i] == ")":
+                sys.stdout.write(text[i])
+                sys.stdout.flush()
+                time.sleep(delay)
+                i += 1
+
+            sys.stdout.write("\033[0m")
+            sys.stdout.flush()
+        else:
+            sys.stdout.write(f"{color}{text[i]}\033[0m")
+            sys.stdout.flush()
+            time.sleep(delay)
+            i += 1
 
 def play_music():
     if not os.path.exists(MUSIC_PATH):
-        print("❌ No se encontró el archivo de música")
+        print("No se encontró el archivo de música")
         return
 
     pygame.mixer.init()
     pygame.mixer.music.load(MUSIC_PATH)
     pygame.mixer.music.play(start=MUSIC_START)
-    
+
 def sing_song():
-    play_music()
+    sys.stdout.write("\033[?25l")
+    sys.stdout.flush()
+
+    try:
+        play_music()
+
+        for i in range(len(lyrics)):
+            parte1, speed1, wait1, parte2, speed2, wait2, parte3, speed3 = lyrics[i]
+            color = colors[i % len(colors)]
     
-    for i in range(len(lyrics)):
-        parte1, speed1, wait1, parte2, speed2, wait2, parte3, speed3 = lyrics[i]
-        color = colors[i % len(colors)]
+            time.sleep(delays[i] - (delays[i-1] if i > 0 else 0))
+    
+            animate_text(parte1, speed1, color)
+            time.sleep(wait1)
+            animate_text(parte2, speed2, color)
+            time.sleep(wait2)
+            animate_text(parte3, speed3, color)
+            print()
+            
+    finally:
+        sys.stdout.flush()
 
-        time.sleep(delays[i] - (delays[i-1] if i > 0 else 0))
-
-        animate_text(parte1, speed1, color)
-        time.sleep(wait1)
-        animate_text(parte2, speed2, color)
-        time.sleep(wait2)
-        animate_text(parte3, speed3, color)
-
-        print()
 
 if __name__ == "__main__":
     sing_song()
